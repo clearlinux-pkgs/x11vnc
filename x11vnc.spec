@@ -4,7 +4,7 @@
 #
 Name     : x11vnc
 Version  : 00f2b16442b23a06bae6135d953a9b0e76ee4d62
-Release  : 1
+Release  : 2
 URL      : https://github.com/LibVNC/x11vnc/archive/00f2b16442b23a06bae6135d953a9b0e76ee4d62.tar.gz
 Source0  : https://github.com/LibVNC/x11vnc/archive/00f2b16442b23a06bae6135d953a9b0e76ee4d62.tar.gz
 Summary  : No detailed summary available
@@ -23,6 +23,7 @@ BuildRequires : pkgconfig(libvncclient)
 BuildRequires : pkgconfig(libvncserver)
 BuildRequires : pkgconfig(openssl)
 BuildRequires : pkgconfig(xcomposite)
+BuildRequires : pkgconfig(xcursor)
 BuildRequires : pkgconfig(xdamage)
 BuildRequires : pkgconfig(xext)
 BuildRequires : pkgconfig(xi)
@@ -64,7 +65,7 @@ doc components for the x11vnc package.
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1483218291
+export SOURCE_DATE_EPOCH=1483218453
 %autogen --disable-static
 make V=1  %{?_smp_mflags}
 
