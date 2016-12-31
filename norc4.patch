@@ -1,0 +1,71 @@
+--- x11vnc-00f2b16442b23a06bae6135d953a9b0e76ee4d62/src/enc.h~	2016-12-19 22:39:15.000000000 +0000
++++ x11vnc-00f2b16442b23a06bae6135d953a9b0e76ee4d62/src/enc.h	2016-12-31 21:01:40.840446769 +0000
+@@ -367,14 +367,13 @@
+ 
+ 	/* work out which cipher and set Cipher to the selected one. */
+ 	if (!strcasecmp(q, "msrc4")) {
+-		Cipher = EVP_rc4();		cipher = "msrc4";
+-
++		Cipher = EVP_aes_256_cfb();	cipher = "aes256";
+ 	} else if (!strcasecmp(q, "msrc4_sc")) {
+-		Cipher = EVP_rc4();		cipher = "msrc4";
++		Cipher = EVP_aes_256_cfb();	cipher = "aes256";
+ 		msrc4_sc = 1;			/* no salt/iv workaround */
+ 
+ 	} else if (strstr(q, "arc4") == q) {
+-		Cipher = EVP_rc4();		cipher = "arc4";
++		Cipher = EVP_aes_256_cfb();	cipher = "aes256";
+ 
+ 	} else if (strstr(q, "aesv2") == q || strstr(q, "aes-ofb") == q) {
+ 		Cipher = EVP_aes_128_ofb();	cipher = "aesv2";
+@@ -404,10 +403,12 @@
+ 	} else if (strstr(q, ".") == q) {
+ 		/* otherwise, try to guess cipher from key filename: */
+ 		if (strstr(keyfile, "arc4.key")) {
+-			Cipher = EVP_rc4();		cipher = "arc4";
++			Cipher = EVP_aes_256_cfb();	cipher = "aes256";
++
+ 
+ 		} else if (strstr(keyfile, "rc4.key")) {
+-			Cipher = EVP_rc4();		cipher = "msrc4";
++			Cipher = EVP_aes_256_cfb();	cipher = "aes256";
++
+ 
+ 		} else if (strstr(keyfile, "aesv2.key")) {
+ 			Cipher = EVP_aes_128_ofb();	cipher = "aesv2";
+@@ -1268,6 +1269,8 @@
+ 	int client_auth_req = 0;
+ 	int keystore_verified = 0;
+ 
++return;
++
+ 	ERR_load_crypto_strings();
+ 
+ 	/* alloc and read from server the 270 comprising the rsa public key: */
+@@ -1358,8 +1361,6 @@
+ 		fprintf(stderr, "securevnc_setup: server uses AES cipher.\n");
+ 	} else {
+ 		fprintf(stderr, "securevnc_setup: server uses ARC4 cipher.\n");
+-		securevnc_arc4 = 1;
+-		Cipher = EVP_rc4();
+ 	}
+ 
+ 	/* check for client auth signature requirement: */
+@@ -1379,7 +1380,7 @@
+  	 *
+ 	 */
+ 	initkey = (unsigned char *) calloc(SECUREVNC_KEY_SIZE, 1);
+-	EVP_BytesToKey(EVP_rc4(), EVP_sha1(), NULL, rsabuf, SECUREVNC_RSA_PUBKEY_SIZE, 1, initkey, NULL);
++//	EVP_BytesToKey(EVP_rc4(), EVP_sha1(), NULL, rsabuf, SECUREVNC_RSA_PUBKEY_SIZE, 1, initkey, NULL);
+ 
+ 	/* expand the transported rsabuf into an rsa object */
+ 	rsa = d2i_RSAPublicKey(NULL, (const unsigned char **) &rsabuf, SECUREVNC_RSA_PUBKEY_SIZE);
+@@ -1398,7 +1399,7 @@
+ 	init_ctx = &init_ctx_obj;
+ #endif
+ 	EVP_CIPHER_CTX_init(init_ctx);
+-	rc = EVP_CipherInit_ex(init_ctx, EVP_rc4(), NULL, initkey, NULL, 1);
++//	rc = EVP_CipherInit_ex(init_ctx, EVP_rc4(), NULL, initkey, NULL, 1);
+ 	if (rc == 0) {
+ 		sslexit("securevnc_setup: EVP_CipherInit_ex(init_ctx) failed");
+ 	}
