@@ -3,3 +3,5 @@
 cairo-dev
 mesa-dev
 libXtst-dev
+libpng-dev
+libjpeg-turbo-dev
