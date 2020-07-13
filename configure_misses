@@ -12,6 +12,9 @@ Configure miss: avahi
 Configure miss: ws2tcpip.h usability
 Configure miss: ws2tcpip.h presence
 Configure miss: ws2tcpip.h
+Configure miss: sys/stropts.h usability
+Configure miss: sys/stropts.h presence
+Configure miss: sys/stropts.h
 Configure miss: shmget in -lcygipc
 Configure miss: ApplicationServices/ApplicationServices.h usability
 Configure miss: ApplicationServices/ApplicationServices.h presence
@@ -33,6 +36,9 @@ Configure miss: avahi
 Configure miss: ws2tcpip.h usability
 Configure miss: ws2tcpip.h presence
 Configure miss: ws2tcpip.h
+Configure miss: sys/stropts.h usability
+Configure miss: sys/stropts.h presence
+Configure miss: sys/stropts.h
 Configure miss: shmget in -lcygipc
 Configure miss: ApplicationServices/ApplicationServices.h usability
 Configure miss: ApplicationServices/ApplicationServices.h presence
