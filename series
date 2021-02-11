@@ -1,2 +1,3 @@
 0001-no-rc4.patch
 0002-Fix-build-with-fno-common.patch
+0003-src-cursor-fix-xfc-NULL-pointer-dereference.patch
