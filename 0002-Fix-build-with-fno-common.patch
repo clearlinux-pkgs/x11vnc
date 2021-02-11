@@ -1,4 +1,4 @@
-From a48b0b1cd887d7f3ae67f525d7d334bd2feffe60 Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Alexander Tsoy <alexander@tsoy.me>
 Date: Tue, 28 Jan 2020 22:21:01 +0300
 Subject: [PATCH] Fix build with -fno-common

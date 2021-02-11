@@ -1,6 +1,17 @@
---- x11vnc-00f2b16442b23a06bae6135d953a9b0e76ee4d62/src/enc.h~	2016-12-19 22:39:15.000000000 +0000
-+++ x11vnc-00f2b16442b23a06bae6135d953a9b0e76ee4d62/src/enc.h	2016-12-31 21:01:40.840446769 +0000
-@@ -367,14 +367,13 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Arjan van de Ven <arjan@linux.intel.com>
+Date: Sat, 31 Dec 2016 21:04:51 +0000
+Subject: [PATCH] no rc4
+
+---
+ src/enc.h | 21 +++++++++++----------
+ 1 file changed, 11 insertions(+), 10 deletions(-)
+
+diff --git a/src/enc.h b/src/enc.h
+index 9d580e5..fac0992 100644
+--- a/src/enc.h
++++ b/src/enc.h
+@@ -367,14 +367,13 @@ extern void enc_do(char *ciph, char *keyfile, char *lport, char *rhp) {
  
  	/* work out which cipher and set Cipher to the selected one. */
  	if (!strcasecmp(q, "msrc4")) {
@@ -18,7 +29,7 @@
  
  	} else if (strstr(q, "aesv2") == q || strstr(q, "aes-ofb") == q) {
  		Cipher = EVP_aes_128_ofb();	cipher = "aesv2";
-@@ -404,10 +403,12 @@
+@@ -404,10 +403,12 @@ extern void enc_do(char *ciph, char *keyfile, char *lport, char *rhp) {
  	} else if (strstr(q, ".") == q) {
  		/* otherwise, try to guess cipher from key filename: */
  		if (strstr(keyfile, "arc4.key")) {
@@ -33,7 +44,7 @@
  
  		} else if (strstr(keyfile, "aesv2.key")) {
  			Cipher = EVP_aes_128_ofb();	cipher = "aesv2";
-@@ -1268,6 +1269,8 @@
+@@ -1268,6 +1269,8 @@ static void securevnc_setup(int conn1, int conn2) {
  	int client_auth_req = 0;
  	int keystore_verified = 0;
  
@@ -42,7 +53,7 @@
  	ERR_load_crypto_strings();
  
  	/* alloc and read from server the 270 comprising the rsa public key: */
-@@ -1358,8 +1361,6 @@
+@@ -1358,8 +1361,6 @@ static void securevnc_setup(int conn1, int conn2) {
  		fprintf(stderr, "securevnc_setup: server uses AES cipher.\n");
  	} else {
  		fprintf(stderr, "securevnc_setup: server uses ARC4 cipher.\n");
@@ -51,7 +62,7 @@
  	}
  
  	/* check for client auth signature requirement: */
-@@ -1379,7 +1380,7 @@
+@@ -1379,7 +1380,7 @@ static void securevnc_setup(int conn1, int conn2) {
   	 *
  	 */
  	initkey = (unsigned char *) calloc(SECUREVNC_KEY_SIZE, 1);
@@ -60,7 +71,7 @@
  
  	/* expand the transported rsabuf into an rsa object */
  	rsa = d2i_RSAPublicKey(NULL, (const unsigned char **) &rsabuf, SECUREVNC_RSA_PUBKEY_SIZE);
-@@ -1398,7 +1399,7 @@
+@@ -1398,7 +1399,7 @@ static void securevnc_setup(int conn1, int conn2) {
  	init_ctx = &init_ctx_obj;
  #endif
  	EVP_CIPHER_CTX_init(init_ctx);

@@ -1,2 +1,2 @@
-norc4.patch
-gcc10.patch
+0001-no-rc4.patch
+0002-Fix-build-with-fno-common.patch
