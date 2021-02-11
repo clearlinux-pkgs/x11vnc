@@ -2,47 +2,23 @@ Configure miss: crypt
 Configure miss: XReadScreen in -lXext
 Configure miss: X11/extensions/readdisplay.h
 Configure miss: FBPMForceLevel in -lXext
-Configure miss: linux/videodev.h usability
-Configure miss: linux/videodev.h presence
 Configure miss: linux/videodev.h
-Configure miss: OpenGL/OpenGL.h usability
-Configure miss: OpenGL/OpenGL.h presence
 Configure miss: OpenGL/OpenGL.h
 Configure miss: avahi
-Configure miss: ws2tcpip.h usability
-Configure miss: ws2tcpip.h presence
 Configure miss: ws2tcpip.h
-Configure miss: sys/stropts.h usability
-Configure miss: sys/stropts.h presence
 Configure miss: sys/stropts.h
 Configure miss: shmget in -lcygipc
-Configure miss: ApplicationServices/ApplicationServices.h usability
-Configure miss: ApplicationServices/ApplicationServices.h presence
 Configure miss: ApplicationServices/ApplicationServices.h
-Configure miss: android/api-level.h usability
-Configure miss: android/api-level.h presence
 Configure miss: android/api-level.h
 Configure miss: crypt
 Configure miss: XReadScreen in -lXext
 Configure miss: X11/extensions/readdisplay.h
 Configure miss: FBPMForceLevel in -lXext
-Configure miss: linux/videodev.h usability
-Configure miss: linux/videodev.h presence
 Configure miss: linux/videodev.h
-Configure miss: OpenGL/OpenGL.h usability
-Configure miss: OpenGL/OpenGL.h presence
 Configure miss: OpenGL/OpenGL.h
 Configure miss: avahi
-Configure miss: ws2tcpip.h usability
-Configure miss: ws2tcpip.h presence
 Configure miss: ws2tcpip.h
-Configure miss: sys/stropts.h usability
-Configure miss: sys/stropts.h presence
 Configure miss: sys/stropts.h
 Configure miss: shmget in -lcygipc
-Configure miss: ApplicationServices/ApplicationServices.h usability
-Configure miss: ApplicationServices/ApplicationServices.h presence
 Configure miss: ApplicationServices/ApplicationServices.h
-Configure miss: android/api-level.h usability
-Configure miss: android/api-level.h presence
 Configure miss: android/api-level.h

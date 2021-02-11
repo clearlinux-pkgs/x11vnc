@@ -4,7 +4,7 @@
 #
 Name     : x11vnc
 Version  : 0.9.16
-Release  : 10
+Release  : 11
 URL      : https://github.com/LibVNC/x11vnc/archive/0.9.16/x11vnc-0.9.16.tar.gz
 Source0  : https://github.com/LibVNC/x11vnc/archive/0.9.16/x11vnc-0.9.16.tar.gz
 Summary  : No detailed summary available
@@ -30,8 +30,10 @@ BuildRequires : pkgconfig(xdamage)
 BuildRequires : pkgconfig(xext)
 BuildRequires : pkgconfig(xi)
 BuildRequires : sed
-Patch1: norc4.patch
-Patch2: gcc10.patch
+Patch1: 0001-no-rc4.patch
+Patch2: 0002-Fix-build-with-fno-common.patch
+Patch3: 0003-src-cursor-fix-xfc-NULL-pointer-dereference.patch
+Patch4: CVE-2020-29074.patch
 
 %description
 [![Build Status](https://travis-ci.org/LibVNC/x11vnc.svg?branch=master)](https://travis-ci.org/LibVNC/x11vnc)
@@ -75,21 +77,23 @@ man components for the x11vnc package.
 cd %{_builddir}/x11vnc-0.9.16
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
+%patch4 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1594621149
+export SOURCE_DATE_EPOCH=1613014831
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 -fstack-protector-strong -mzero-caller-saved-regs=used "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 -fstack-protector-strong -mzero-caller-saved-regs=used "
 %autogen --disable-static
 make  %{?_smp_mflags}
 
@@ -98,10 +102,10 @@ export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-make VERBOSE=1 V=1 %{?_smp_mflags} check
+make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1594621149
+export SOURCE_DATE_EPOCH=1613014831
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/x11vnc
 cp %{_builddir}/x11vnc-0.9.16/COPYING %{buildroot}/usr/share/package-licenses/x11vnc/4cc77b90af91e615a64ae04893fdffa7939db84c
