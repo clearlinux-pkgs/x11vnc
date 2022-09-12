@@ -4,7 +4,7 @@
 #
 Name     : x11vnc
 Version  : 0.9.16
-Release  : 12
+Release  : 13
 URL      : https://github.com/LibVNC/x11vnc/archive/0.9.16/x11vnc-0.9.16.tar.gz
 Source0  : https://github.com/LibVNC/x11vnc/archive/0.9.16/x11vnc-0.9.16.tar.gz
 Summary  : No detailed summary available
