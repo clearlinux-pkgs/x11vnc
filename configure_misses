@@ -1,24 +1,26 @@
-Configure miss: crypt
-Configure miss: XReadScreen in -lXext
-Configure miss: X11/extensions/readdisplay.h
-Configure miss: FBPMForceLevel in -lXext
-Configure miss: linux/videodev.h
-Configure miss: OpenGL/OpenGL.h
-Configure miss: avahi
-Configure miss: ws2tcpip.h
-Configure miss: sys/stropts.h
-Configure miss: shmget in -lcygipc
 Configure miss: ApplicationServices/ApplicationServices.h
-Configure miss: android/api-level.h
-Configure miss: crypt
-Configure miss: XReadScreen in -lXext
-Configure miss: X11/extensions/readdisplay.h
-Configure miss: FBPMForceLevel in -lXext
-Configure miss: linux/videodev.h
-Configure miss: OpenGL/OpenGL.h
-Configure miss: avahi
-Configure miss: ws2tcpip.h
-Configure miss: sys/stropts.h
-Configure miss: shmget in -lcygipc
 Configure miss: ApplicationServices/ApplicationServices.h
+Configure miss: FBPMForceLevel in -lXext
+Configure miss: FBPMForceLevel in -lXext
+Configure miss: OpenGL/OpenGL.h
+Configure miss: OpenGL/OpenGL.h
+Configure miss: X11/extensions/readdisplay.h
+Configure miss: X11/extensions/readdisplay.h
+Configure miss: XReadScreen in -lXext
+Configure miss: XReadScreen in -lXext
 Configure miss: android/api-level.h
+Configure miss: android/api-level.h
+Configure miss: avahi
+Configure miss: avahi
+Configure miss: crypt
+Configure miss: crypt
+Configure miss: gethostbyname in -lnsl
+Configure miss: gethostbyname in -lnsl
+Configure miss: linux/videodev.h
+Configure miss: linux/videodev.h
+Configure miss: shmget in -lcygipc
+Configure miss: shmget in -lcygipc
+Configure miss: sys/stropts.h
+Configure miss: sys/stropts.h
+Configure miss: ws2tcpip.h
+Configure miss: ws2tcpip.h

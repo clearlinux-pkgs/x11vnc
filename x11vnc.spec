@@ -4,7 +4,7 @@
 #
 Name     : x11vnc
 Version  : 0.9.16
-Release  : 13
+Release  : 14
 URL      : https://github.com/LibVNC/x11vnc/archive/0.9.16/x11vnc-0.9.16.tar.gz
 Source0  : https://github.com/LibVNC/x11vnc/archive/0.9.16/x11vnc-0.9.16.tar.gz
 Summary  : No detailed summary available
@@ -85,15 +85,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1613014831
+export SOURCE_DATE_EPOCH=1664894812
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 -fstack-protector-strong -fzero-call-used-regs=used "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 -fstack-protector-strong -fzero-call-used-regs=used "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 -fstack-protector-strong -fzero-call-used-regs=used "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 -fstack-protector-strong -fzero-call-used-regs=used "
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto -fstack-protector-strong -fzero-call-used-regs=used "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto -fstack-protector-strong -fzero-call-used-regs=used "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto -fstack-protector-strong -fzero-call-used-regs=used "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto -fstack-protector-strong -fzero-call-used-regs=used "
 %autogen --disable-static
 make  %{?_smp_mflags}
 
@@ -105,12 +105,12 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1613014831
+export SOURCE_DATE_EPOCH=1664894812
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/x11vnc
-cp %{_builddir}/x11vnc-0.9.16/COPYING %{buildroot}/usr/share/package-licenses/x11vnc/4cc77b90af91e615a64ae04893fdffa7939db84c
-cp %{_builddir}/x11vnc-0.9.16/misc/LICENSE %{buildroot}/usr/share/package-licenses/x11vnc/602bc8c6ce5e9f04bc1f31c0903947632222d8e0
-cp %{_builddir}/x11vnc-0.9.16/misc/enhanced_tightvnc_viewer/COPYING %{buildroot}/usr/share/package-licenses/x11vnc/ab8577d3eb0eedf3f98004e381a9cee30e7224e1
+cp %{_builddir}/x11vnc-%{version}/COPYING %{buildroot}/usr/share/package-licenses/x11vnc/4cc77b90af91e615a64ae04893fdffa7939db84c || :
+cp %{_builddir}/x11vnc-%{version}/misc/LICENSE %{buildroot}/usr/share/package-licenses/x11vnc/602bc8c6ce5e9f04bc1f31c0903947632222d8e0 || :
+cp %{_builddir}/x11vnc-%{version}/misc/enhanced_tightvnc_viewer/COPYING %{buildroot}/usr/share/package-licenses/x11vnc/ab8577d3eb0eedf3f98004e381a9cee30e7224e1 || :
 %make_install
 
 %files
